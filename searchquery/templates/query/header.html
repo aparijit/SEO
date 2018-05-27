@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A simple keyword analysis tool!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'query/css/bootstrap.min.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'query/css/styles.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'query/css/particles.css' %}" type="text/css"/>
+    <base href="/">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>-->
+
+</head>
+
+    <body class="body" style="background-color:#f6f6f6">
+        <div class="container-fluid" style="min-height:95%; ">
+            <div class="row">
+                <div class="col-sm-2">
+                    <br>
+                        <center>
+                            <img src="{% static 'query/img/logo.png' %}" class="responsive-img" style='max-height:100px;' href="/" >
+                        </center>
+                </div>
+                <div class="col-sm-10">
+                    <br>
+                        <center>
+                            <h3>Keyword Research and Network Analysis</h3>
+                        </center>
+                </div>
+            </div><hr>
+
+            <div class="row">
+                <div clas ="col-sm-10">
+
+                    <div class='container-fluid'>
+                    <br><br>
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <footer id="footer">
+        <div class="container-fluid" style='margin-left:15px'>
+          <div class="footer_inner_left">Arijit Pramanick | 001410501013</div>
+          <div class="footer_inner_right">Shounak Chatterjee | 001410501020</div>
+        </div>
+    </footer>
+</html>

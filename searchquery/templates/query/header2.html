@@ -1,0 +1,62 @@
+<html lang="en" ng-app="main">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MLSEO-Optimise your website using Machine Learning!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'query/css/styles.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'query/css/particles.css' %}" type="text/css"/>
+    <base href="/">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js">
+    </script>
+
+    <script>
+        particlesJS.load('particles-js', 'json/particles.json', function() {
+            console.log('particles.json loaded...');
+        });
+    </script>-->
+</head>
+
+<header>
+    <div id="main-rect" >
+        <!-- logo -->
+        <!--<a href="/"><img class="logo" src="images/logo.png" /></a> -->
+        <!-- navigation menu -->
+        <div id="main-text" style="margin:0px">
+            <!-- <nav> -->
+                <!--<ul> -->
+                    <!-- <li><a id="homeBtn" href="/" ng-class="{activeSmall:part == 'home'}">HOME</a></li> -->
+                    <!--<li><a id="adminBtn" href="/admin" ng-class="{activeSmall:part == 'admin'}">Admin</a></li>-->
+                    <!-- <li><a id="contributeBtn" href="/contribute" ng-class="{activeSmall:part == 'contribute'}">CONTRIBUTE</a></li> -->
+                    <!-- <li><a id="aboutBtn" href="/about" ng-class="{activeSmall:part == 'about'}">ABOUT</a></li> -->
+                <!--</ul> -->
+            <!-- </nav> -->
+            <h1 id="top1">Search Engine Optimisation using Machine Learning</h1>
+        </div>>
+    </div>
+</header>
+
+<body>
+    <div>
+        <div>
+            <div>
+            <br><br>
+               {% block content %}
+               {% endblock %}   
+            </div>
+          </div>
+        </div> 
+    </div>
+</body>
+
+<footer id="footer">
+  <div class="Footer_inner_left">Shounak Chatterjee</div>
+  <div class="Footer_inner_right">Arijit Pramanick</div>
+</footer>
+
+</html>

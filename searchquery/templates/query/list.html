@@ -1,0 +1,85 @@
+{% extends "query/home.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a data-toggle="tab" href="list/#home">Popular Keywords</a></li>
+        <li><a data-toggle="tab" href="list/#menu1">Search Results (Top 10)</a></li>
+        <li><a data-toggle="tab" href="list/#menu2">Word_Frequency (Meta tags)</a></li>
+    </ul>
+
+    <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+          <br></br>
+
+          <div class="row">
+              <div class="col-sm-6">
+                  <div style="height:400px;width:100%;border:1px solid #ccc; background-color: #fff; overflow:auto;">
+                      {% if result %}
+                        {% for res in result %}
+                          <ul>{{ res }}</ul>
+                        {% endfor %}
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                  <img src="{% static 'query/img/weighted_graph2.png' %}" class="responsive-img" style='max-height:400px;' >
+                </div>
+          </div>
+          <p>Strongly connected components from the graph, can be included in your content as they indicate more dependencies with other popularly searched keywords. </p>
+        </div>
+
+            <div id="menu1" class="tab-pane fade">
+            <br></br>
+
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <h3>Search Results: </h3>
+                    {% if urls %}
+                      {% for res in urls %}
+                        <li>{{ res }}</li>
+                      {% endfor %}
+                    {% endif %}
+              </div>
+              <div class="col-sm-1"></div>
+
+            </div>
+
+          </div>
+
+          <div id="menu2" class="tab-pane fade">
+          <br></br>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <h3>Keyword Frequency</h3>
+              <p>Displays raw frequency of keywords</p>
+              <div style="height:300px;width:100%;border:1px solid #ccc; background-color: #fff; overflow:auto;">
+                  {% if key_word_count %}
+                    {% for key in key_word_count %}
+                      <ul>{{ key }}</ul>
+                    {% endfor %}
+                  {% endif %}
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <h3>Keyword-Website Frequency</h3>
+              <p>Displays how many websites contain this particular keyword</p>
+              <div style="height:300px;width:100%;border:1px solid #ccc; background-color: #fff; overflow:auto;">
+                  {% if key_word_website_count %}
+                    {% for key in key_word_website_count %}
+                      <ul>{{ key }}</ul>
+                    {% endfor %}
+                  {% endif %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+</div>
+</div>
+{% endblock %}

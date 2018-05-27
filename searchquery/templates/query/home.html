@@ -1,0 +1,64 @@
+{% extends "query/header.html" %}
+{% block content %}
+<form class="form-horizontal" action="/list/" method="post">
+ {% csrf_token %}
+  <div class="form-group">
+    <label for="ipqr" class="col-sm-2 control-label">Enter your Query</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="ipqur" name="inputquery" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <!-- <button type="submit" class="btn btn-default">Search</button> -->
+      <input type="submit" class="btn btn-primary" role="button" value="Search">
+    </div>
+  </div>
+</form>
+
+
+<div class="col-md-12">
+<div class="row description">
+  <div class="col-md-12">
+    <h3>How it works</h3>
+    <p>
+      Enter a search query relevant to the topic of your webpage. Our tool grabs the results from page
+      one of Google (top 10 results), extracts out the relevant keywords from each
+      page, and then shows dependencies among those keywords using a network. Results from this network can
+      be used to boost your webpage's ranking.
+    </p>
+
+    <h3>Under the hood</h3>
+
+    <p>
+      We use Python programming language to implement all the underlying codes and Python based Django to power up this site!
+    </p>
+
+    <ul>
+      <li>
+        We have used the our Google Results Extractor module to extract the relevant text from the HTML of each
+        page. This algorithm can be used to detect and remove the
+        surplus "clutter" (boilerplate, templates) around the main textual content
+        of a web page.
+      </li>
+
+      <li>
+        We have used the Keyword Extractor module to identify the relevant keywords from text in
+        English. Keywords can be compounded by one or more words and are defined
+        as the important topics in the content.
+      </li>
+    </ul>
+
+
+    <h3>Further Improvements</h3>
+
+    <p>
+      This app is under development process. We have experimented the algorithm on Meta Descriptions. The same can be extended
+      for title and description and other parameters. Several other extensions such as automatic sentence generation from the graph can be done.
+    </p>
+
+  </div>
+</div>
+</div>
+
+{% endblock %}

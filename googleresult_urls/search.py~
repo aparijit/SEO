@@ -1,0 +1,90 @@
+import requests, re
+from bs4 import BeautifulSoup
+import urllib.request
+import urllib.parse
+from docopt import docopt
+from time import time as timer
+
+'''
+try:
+	x = urllib.request.urlopen('https://www.google.com/search?q=travel+india')
+	print(x.read())
+
+except Exception as e:
+	print(str(e))
+
+#gives HTTP 403: Forbidden error
+'''
+
+'''
+try:
+	url = 'https://www.google.com/search?q=travel+india'
+	headers = {}
+	headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+#       To get user agent:
+# 	<?php
+#	echo $_SERVER['HTTP_USER_AGENT']
+#	?>
+	req = urllib.request.Request(url, headers=headers)
+	resp = urllib.request.urlopen(req)
+	respData = resp.read()
+	saveFile = open('withHeaders.txt','w')
+	saveFile.write(str(respData))
+	saveFile.close()
+except Exception as e:
+	print(str(e))
+'''
+
+def get_urls(search_string,start):
+	#Empty temp list to store the urls
+	temp = []
+ 
+	#url
+	url = 'https://www.google.com/search'
+ 
+	#Parameters in payload
+	payload = { 'q' : search_string, 'start' : '0' }
+ 
+	#Setting User-Agent
+	my_headers = { 'User-agent' : 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36' }
+ 
+	#Getting the response in an Object r
+	r = requests.get( url, params = payload, headers = my_headers )
+ 
+	#Create a Beautiful soup Object of the response r parsed as html
+	soup = BeautifulSoup( r.text, 'html.parser' )
+ 
+	#Getting all h3 tags with class 'r'
+	h3tags = soup.find_all( "h3", {"class":"r"} )
+	regex = r'https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,}'
+	
+	for h3 in h3tags:
+		temp.append(re.search(regex,h3.a['href']))
+	
+	return temp
+ 
+def main():
+    start     = timer()
+    #Empty List to store the Urls
+    result    = []
+    search    = input("Enter search string: ")
+    pages     = input("Enter no.of pages: ")
+    #Calling the function [pages] times.
+    for page in range( 0,  int(pages) ):
+        #Getting the URLs in the list
+        result.extend( get_urls( search, str(page*10) ) )
+    #Removing Duplicate URLs
+    result    = list( set( result ) )
+    for i in result:
+    	i = str(i) 
+    	if i != "None" :
+    		res = i.split("=")
+    		print(res[2])
+    #print( *result, sep = '\n' )
+    print( '\nTotal URLs Scraped : %s ' % str( len( result ) ) ) 
+    print( 'Script Execution Time : %s ' % ( timer() - start, ) )
+ 
+if __name__ == '__main__':
+    main()
+ 
+#End 

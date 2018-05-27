@@ -1,0 +1,163 @@
+{
+    "links": [
+        {
+            "source": 0,
+            "target": 3
+        },
+        {
+            "source": 1,
+            "target": 7
+        },
+        {
+            "source": 1,
+            "target": 8
+        },
+        {
+            "source": 2,
+            "target": 5
+        },
+        {
+            "source": 2,
+            "target": 7
+        },
+        {
+            "source": 3,
+            "target": 8
+        },
+        {
+            "source": 4,
+            "target": 8
+        },
+        {
+            "source": 5,
+            "target": 10
+        },
+        {
+            "source": 5,
+            "target": 15
+        },
+        {
+            "source": 5,
+            "target": 11
+        },
+        {
+            "source": 5,
+            "target": 6
+        },
+        {
+            "source": 5,
+            "target": 7
+        },
+        {
+            "source": 5,
+            "target": 12
+        },
+        {
+            "source": 6,
+            "target": 7
+        },
+        {
+            "source": 7,
+            "target": 10
+        },
+        {
+            "source": 7,
+            "target": 11
+        },
+        {
+            "source": 7,
+            "target": 16
+        },
+        {
+            "source": 7,
+            "target": 15
+        },
+        {
+            "source": 7,
+            "target": 8
+        },
+        {
+            "source": 7,
+            "target": 12
+        },
+        {
+            "source": 8,
+            "target": 14
+        },
+        {
+            "source": 8,
+            "target": 16
+        },
+        {
+            "source": 8,
+            "target": 13
+        },
+        {
+            "source": 8,
+            "target": 17
+        },
+        {
+            "source": 8,
+            "target": 9
+        }
+    ],
+    "nodes": [
+        {
+            "id": "pradesh"
+        },
+        {
+            "id": "may"
+        },
+        {
+            "id": "reviews"
+        },
+        {
+            "id": "himachal"
+        },
+        {
+            "id": "altitude"
+        },
+        {
+            "id": "trek"
+        },
+        {
+            "id": "time"
+        },
+        {
+            "id": "sar"
+        },
+        {
+            "id": "pass"
+        },
+        {
+            "id": "june"
+        },
+        {
+            "id": "location"
+        },
+        {
+            "id": "kasol"
+        },
+        {
+            "id": "himalayas"
+        },
+        {
+            "id": "trekking"
+        },
+        {
+            "id": "manali"
+        },
+        {
+            "id": "experience"
+        },
+        {
+            "id": "october"
+        },
+        {
+            "id": "best"
+        }
+    ],
+    "directed": false,
+    "multigraph": false,
+    "graph": {}
+}
